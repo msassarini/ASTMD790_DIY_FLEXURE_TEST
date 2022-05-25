@@ -1,5 +1,7 @@
 const byte clockPin = 2;  //attach to clock pin on calipers
 const byte dataPin = 3; //attach to data pin on calipers
+const int rx_pin = 31;
+bool last_state;
 
 //Milliseconds to wait until starting a new value
 //This can be a different value depending on which flavor caliper you are using.
@@ -27,6 +29,7 @@ void setup() {
 
   pinMode(clockPin, INPUT);
   pinMode(dataPin, INPUT);
+  pinMode(rx_pin, INPUT);
   Serial.println("Ready");
   lastTime = millis();
 
@@ -46,12 +49,19 @@ void loop() {
     }
     newValue = 0;
     }
-  */
-
-  if (millis() - lastTime >= PERIOD) {
+      if (millis() - lastTime >= PERIOD) {
     lastTime=millis();
     Serial.println(finalValue, 2); 
   }
+  */
+if (last_state != digitalRead(rx_pin)) {
+  last_state = digitalRead(rx_pin);
+    if (last_state == HIGH) {
+      last_state = LOW;
+      Serial.println(finalValue, 2);
+    }
+  }
+
   
   //The ISR Can't handle the arduino command millis()
   //because it uses interrupts to count. The ISR will

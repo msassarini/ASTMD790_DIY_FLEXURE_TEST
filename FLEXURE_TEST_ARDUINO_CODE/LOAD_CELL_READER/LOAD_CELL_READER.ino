@@ -1,13 +1,13 @@
 
 #include "HX711.h"
 
-#define calibration_factor -7050.0 //This value is obtained using the SparkFun_HX711_Calibration sketch in LBS
+#define calibration_factor -15689.32 //0.206kg calibrated
 
 #define LOADCELL_DOUT_PIN  5
 #define LOADCELL_SCK_PIN  4
 bool last_state;
 float weight = 0;
-const int rx_pin = 13;
+const int rx_pin = 6;
 
 HX711 scale;
 
@@ -29,5 +29,5 @@ void loop() {
       weight = scale.get_units();
       Serial.println(weight, 1); //scale.get_units() returns a float
     }
-  }
+  } 
 }

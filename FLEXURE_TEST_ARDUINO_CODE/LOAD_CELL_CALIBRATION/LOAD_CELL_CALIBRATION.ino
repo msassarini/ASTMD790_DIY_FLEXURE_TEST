@@ -11,7 +11,7 @@
    value in EEPROM, and also how to change the value manually.
    The result value can then later be included in your project sketch or fetched from EEPROM.
    To implement calibration in your project sketch the simplified procedure is as follow:
-       LoadCell.tare();
+       LoadCell.tare();-15689.32
        //place known mass
        LoadCell.refreshDataSet();
        float newCalibrationValue = LoadCell.getNewCalibration(known_mass);
@@ -24,8 +24,7 @@
 
 //pins:
 const int HX711_dout = 5; //mcu > HX711 dout pin
-const int HX711_sck = 4
-; //mcu > HX711 sck pin
+const int HX711_sck = 4; //mcu > HX711 sck pin
 
 //HX711 constructor:
 HX711_ADC LoadCell(HX711_dout, HX711_sck);
