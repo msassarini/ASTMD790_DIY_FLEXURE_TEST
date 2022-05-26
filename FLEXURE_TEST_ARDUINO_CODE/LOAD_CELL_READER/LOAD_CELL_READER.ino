@@ -1,7 +1,7 @@
 
 #include "HX711.h"
 
-#define calibration_factor -15689.32 //0.206kg calibrated
+#define calibration_factor -48.39 //0.206kg calibrated
 
 #define LOADCELL_DOUT_PIN  5
 #define LOADCELL_SCK_PIN  4
@@ -18,7 +18,7 @@ void setup() {
   scale.set_scale(calibration_factor); //This value is obtained by using the SparkFun_HX711_Calibration sketch
   scale.tare(); //Assuming there is no weight on the scale at start up, reset the scale to 0
   last_state = digitalRead(rx_pin);
-  Serial.println("Load_LBS");
+  //Serial.println("Load_LBS");
 }
 
 void loop() {
