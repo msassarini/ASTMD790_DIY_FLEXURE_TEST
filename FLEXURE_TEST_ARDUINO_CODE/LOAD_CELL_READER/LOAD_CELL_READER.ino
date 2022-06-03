@@ -1,7 +1,7 @@
 
 #include "HX711.h"
 
-#define calibration_factor -48.39 //0.206kg calibrated
+#define calibration_factor 14.39 //g calibrated
 
 #define LOADCELL_DOUT_PIN  5
 #define LOADCELL_SCK_PIN  4
