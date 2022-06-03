@@ -21,6 +21,7 @@ void loop() {
   if (millis() - lastTime >= PERIOD) {
     lastTime = millis();
     digitalWrite(PIN , HIGH);
+    delay(1);
     //Serial.println("HIGH");
   }
   else {

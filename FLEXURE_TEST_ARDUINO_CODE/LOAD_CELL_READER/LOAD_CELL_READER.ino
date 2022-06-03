@@ -25,7 +25,6 @@ void loop() {
   if (last_state != digitalRead(rx_pin)) {
   last_state = digitalRead(rx_pin);
     if (last_state == HIGH) {
-      last_state = LOW;
       weight = scale.get_units();
       Serial.println(weight, 1); //scale.get_units() returns a float
     }
